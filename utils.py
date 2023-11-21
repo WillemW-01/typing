@@ -8,6 +8,9 @@ DEFAULT_NUM = 3
 
 
 class Chalk:
+    """
+    The class simply allows easy coloring of terminal output.
+    """
     bcolors = {
         "header": "\033[95m",
         "ENDC": "\033[0m",
@@ -21,31 +24,27 @@ class Chalk:
     }
 
     def color(string, color):
+        """
+        Adds the color character to the start of the string, and appends the 
+        terminating color.
+        """
+        
         return f"{Chalk.bcolors[color]}{string}{Chalk.bcolors['ENDC']}"
 
 
 def target_input():
+    """
+    This function is called when the user wants to input their own input text
+    via the terminal.
+    """
+    
     print("Type your input string below. Press ctrl-z + enter to stop input.")
     return stdin.read().split("\n")
 
 
-def target_file(filepath):
-    return pack_text(filepath)
-
-
-def target_facts(param="3"):
-    # num = DEFAULT_NUM if len(argv) < 2 else int(argv[2])
-    return fetch_fact(int(param))
-
-
-def target_headlines(param="3"):
-    # num = DEFAULT_NUM if len(argv) < 2 else int(argv[2])
-    return fetch_headlines(int(param))
-
-
-def print_help():
-    print(
-        """\
+def print_help(*args):
+    exit(
+"""\
 This program allows you to practise your typing.
 There are multiple ways to do this by using different modes:
     --input   -> allows typing directly what you want to practice. Nothing else needed
@@ -53,10 +52,13 @@ There are multiple ways to do this by using different modes:
     --facts   -> fetches interesting facts, can specify the amount of facts to get
     --news    -> fetches headlines from the bbc, can specify the number of them"""
     )
-    exit(1)
 
 
 def fetch_fact(n=3):
+    """
+    This function fetches the specified number of facts from the uselessfacts api
+    """
+  
     url = "https://uselessfacts.jsph.pl/random.json?language=en"
     output = []
     for i in range(n):
@@ -71,6 +73,14 @@ def fetch_fact(n=3):
 
 
 def fetch_headlines(n=10):
+    """
+    This function fetches the specified amount of headlines from the BBC world
+    news website.
+    
+    Uses beautifulsoup to scrape the website.
+    """
+  
+  
     url = "https://www.bbc.com/news"
     output = []
 
@@ -79,23 +89,33 @@ def fetch_headlines(n=10):
     headlines = soup.find("body").find_all("h3")
     for i in range(n):
         text = headlines[i].text.strip()
-        if text not in output:
+        if text not in output: # make sure no duplicate
             output += [headlines[i].text.strip()]
 
     return output
 
 
 def print_progress(message, i, n):
+    """
+    Prints a very simple progress bar with a specified string at the front (this
+    indicates what is being waited for).
+    """
+  
     count = i
     m = n - count - 1
     if n > 25:
         count = int(i / n * 25)
         m = 25 - count - 1
-    text = "[" + "*" * (count + 1) + "." * m + "]"
+    text = f"[{'*' * (count + 1)}{'.' * m}]"
     print(message, text, end="\r")
 
 
 def pack_text(filepath):
+    """
+    This function takes in a file and ensures that all the text fits in multiple
+    rows that has a width at most 80 characters.
+    """
+  
     output = [""]
     i = 0
     with open(filepath) as file:
@@ -113,6 +133,6 @@ def pack_text(filepath):
     return output
 
 
-if __name__ == "__main__":  # testing class
+if __name__ == "__main__":  # testing method
     num = int(argv[1])
     print(fetch_headlines(num))
