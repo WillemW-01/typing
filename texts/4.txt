@@ -1,0 +1,7 @@
+Mathematical Statistics with Applications was written for use with an undergraduate
+1-year sequence of courses (9 quarter- or 6 semester-hours) on mathematical statistics.
+The intent of the text is to present a solid undergraduate foundation in statistical
+theory while providing an indication of the relevance and importance of the theory
+in solving practical problems in the real world. We think a course of this type is
+suitable for most undergraduate disciplines, including mathematics, where contact
+with applications may provide a refreshing and motivating experience.

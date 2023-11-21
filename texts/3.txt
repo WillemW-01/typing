@@ -1,0 +1,10 @@
+In a relational database, a database is composed of one or more tables. A
+table is the principal unit of storage in a database. Each table in a database is
+generally modeled after some type of real-world entity, such as a customer or
+a product (though as we will see, some tables do not correspond to real-world
+entities but are used to relate entities together). A table is a two-dimensional
+container for data that consists of records (rows); each record has the same
+number of columns, which are more specifically called fields, which contain
+the actual data. Each table will have one (or sometimes more than one)
+special field called a primary key that is used to uniquely identify each record
+in a table. Figure 14.3 illustrates these different terms.

@@ -1,0 +1,8 @@
+This is the file I would like to pack into, it's got a lot of text in one line, and there are going to be newlines... I want the newlines to be removed and replaced by spaces.
+So this is where the newline was, and let's see how the program works with it.
+Another newline here.
+And here.
+So let's see the   output.
+
+
+

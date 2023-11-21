@@ -1,0 +1,1 @@
+There are actually two types of inline elements: replaced and nonreplaced.

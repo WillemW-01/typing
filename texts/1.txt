@@ -1,0 +1,11 @@
+There are actually two types of inline elements: replaced and nonreplaced.
+Replaced inline elements are elements whose content and thus appearance are
+defined by some external resource, such as <img> and the various form
+elements. Nonreplaced inline elements are those elements whose content is
+defined within the document, and includes all the other inline elements.
+Replaced inline elements have a width and height that are defined by the
+external resource and thus have the regular CSS box model discussed in
+Chapter 4. Nonreplaced inline elements, in contrast, have a constrained box
+model. For instance, because their width is defined by their content (and by
+other properties such as font-size and letter-spacing), the width property
+is ignored, as are the margin-top, margin-bottom, and the height.
