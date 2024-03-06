@@ -80,13 +80,15 @@ def fetch_headlines(n=10):
     Uses beautifulsoup to scrape the website.
     """
   
-  
+    exit("BBC's website isn't incompatible with my parser anymore. Try another function.")
     url = "https://www.bbc.com/news"
     output = []
 
     response = requests.get(url)
+    print(response.text)
     soup = BeautifulSoup(response.text, "html.parser")
     headlines = soup.find("body").find_all("h3")
+    print(len(headlines))
     for i in range(n):
         text = headlines[i].text.strip()
         if text not in output: # make sure no duplicate
