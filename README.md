@@ -7,6 +7,10 @@ the user will be able to view their `wpm`, `score`, and `time` results.
 The cursor's position will be highlighted in red to indicate how far along the
 line the user has typed.
 
+## Demo
+
+https://github.com/user-attachments/assets/88c1d028-115e-49f8-b491-4de911923fdf
+
 ## Usage
 
 First install libraries (optionally in a `venv`):
